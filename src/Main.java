@@ -18,20 +18,18 @@ public class Main {
         }
     }
 
-    public static void determineTimeDelivery(int distance) {
-
-
+    public static int determineTimeDelivery(int distance) {
+        int timeOfDelivery;
         if (distance <= 20) {
-            System.out.println("Срок доставки 1 день");
+            timeOfDelivery = 1;
         } else if (distance > 20 && distance <= 60) {
-            System.out.println("Срок доставки 2 дня");
+            timeOfDelivery = 2;
         } else if (distance > 60 && distance <= 100) {
-            System.out.println("Срок доставки 3 дня");
+            timeOfDelivery = 3;
         } else {
-            System.out.println("Доставки нет.");
+            timeOfDelivery = 0;
         }
-
-
+        return timeOfDelivery;
     }
 
 
@@ -54,7 +52,11 @@ public class Main {
 
         System.out.println("    Задание 3");
 
-        int deliveryDistance = 160;
-        determineTimeDelivery(deliveryDistance);
+        int deliveryDistance = 95;
+        if (determineTimeDelivery(deliveryDistance) == 0) {
+            System.out.println("Доставки нет");
+        } else {
+            System.out.println("Количество дней доставки - " + determineTimeDelivery(deliveryDistance));
+        }
     }
 }
